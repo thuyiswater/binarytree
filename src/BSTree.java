@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BSTree {
     TreeNode root;
 
@@ -61,7 +64,15 @@ public class BSTree {
 
     public void printPostOrder() {postOrder(root);}
 
-    void breadthFirst(TreeNode root) {
+    public void breadthFirst() {
+        Queue<TreeNode> queue = new LinkedList<>();
 
+        if(!queue.isEmpty()) {
+            TreeNode node = queue.remove();
+            System.out.println(" " + node.data);
+            if(node.left != null) queue.add(node.left);
+            if(node.right != null) queue.add(node.right);
+        }
     }
+
 }
